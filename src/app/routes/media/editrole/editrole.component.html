@@ -1,0 +1,117 @@
+<page-header style="background-color:#D5A021 ;"></page-header>
+
+
+
+  <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false" style="z-index: 9100; display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Role Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValueedit">
+            <div class="row">
+              <div class="col">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Role Id</label>
+                <input type="text" formControlName="rid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+              </div>
+              </div>
+              <div class="col">
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Role Name</label>
+                <input type="text" formControlName="rname" class="form-control" id="exampleInputPassword1" required>
+              </div>
+              </div>
+            </div>
+            <div class="card">
+
+              <div class="card-body">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Select Access</span>
+
+    <div style="margin-top:8px ;margin-left:10px; padding-right: 30px; border-right: 40px;">
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" formControlName="redit" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox2">Edit</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" formControlName="radd" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox3">Add</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" formControlName="rdelete" type="checkbox" id="inlineCheckbox4" value="option4">
+              <label class="form-check-label" for="inlineCheckbox4">Delete</label>
+            </div>
+            </div>
+            </div>
+              </div>
+            </div>
+            </form><br>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" *ngIf= "showUpdate" (click)= "updaterole()" class="btn btn-primary mx-3">Update</button>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="card">
+  <div class="card-body">
+<h5 class="card-title">Current Roles</h5>
+
+<table class="table mt-3  table-bordered">
+  <thead>
+      <tr style="background-color: #24272B;">
+          <th scope="col" style="color:white">Role ID</th>
+          <th scope="col"style="color:white">Role Name</th>
+          <th scope="col"style="color:white">Action</th>
+
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tutorial of tutorialsrole; let i = index">
+        <td>{{tutorial.rid}}</td>
+        <td>{{tutorial.rname}}</td>
+        <td><button matTooltipClass="below" matTooltip="Edit" mat-icon-button="" (click)= "onEditrole(tutorial)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-primary mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="primary" ng-reflect-disabled="false" ng-reflect-message="Edit" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-4" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">edit</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+          <button matTooltip="Delete" matTooltipClass="below" mat-icon-button=""(click)= "deleterole(tutorial)" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-warn mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="warn" ng-reflect-disabled="false" ng-reflect-message="g" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-5" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">delete</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+        </td>
+    </tr>
+</tbody>
+
+</table>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Launch demo modal
+</button>
+<body>
+<!-- Modal -->
+<div class="modal" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"data-backdrop="false" style="z-index: 9100; display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -1,0 +1,65 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark-theme: map.get($theme, is-dark);
+  $primary: map.get($theme, primary);
+  $accent: map.get($theme, accent);
+  $background: map.get($theme, background);
+  $foreground: map.get($theme, foreground);
+
+  .matero-sidemenu {
+    > .matero-sidemenu-item {
+      > a {
+        color: white;
+
+        &:hover {
+          background: mat.get-color-from-palette($background, hover);
+        }
+      }
+
+      &.active {
+        > a {
+          color:#D5A021;
+          background-color: if($is-dark-theme, rgba(mat.get-color-from-palette($primary), .15), transparent);
+
+          &:hover {
+            background: mat.get-color-from-palette($background, hover);
+          }
+        }
+      }
+
+      &.open {
+        background: mat.get-color-from-palette($background, hover);
+      }
+    }
+
+    &.matero-sidemenu-sub {
+      &.active {
+        > a {
+          color:#D5A021;
+
+
+
+        }
+      }
+      > .matero-sidemenu-item {
+        &.active {
+          > a {
+            background-color: transparent;
+
+            &:hover {
+              background: mat.get-color-from-palette($background, hover);
+            }
+          }
+        }
+
+        &.open {
+          background: transparent;
+          color: #D5A021;
+        }
+      }
+    }
+  }
+}

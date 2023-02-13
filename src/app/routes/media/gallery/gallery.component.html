@@ -1,0 +1,162 @@
+<page-header style="background-color:#D5A021 ;"></page-header>
+
+
+
+
+<br><br>
+
+<div class="card">
+  <h5 class="card-header" style="color: #e3e3e3; background-color: #24272B;">New Role Registration</h5>
+  <div class="card-body"  style="background-color:#e3e3e3">
+
+    <div class="modal-body">
+      <form [formGroup]="formValuerole">
+        <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Role Id</label>
+            <input type="text" formControlName="rid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+          </div>
+          </div>
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Role Name</label>
+            <input type="text" formControlName="rname" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          </div>
+        </div>
+        <div class="card">
+
+          <div class="card-body">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Select Access</span>
+
+<div style="margin-top:8px ;margin-left:10px; padding-right: 30px; border-right: 40px;">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" formControlName="redit" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">Edit</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" formControlName="radd" type="checkbox" id="inlineCheckbox3" value="option3">
+          <label class="form-check-label" for="inlineCheckbox3">Add</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" formControlName="rdelete" type="checkbox" id="inlineCheckbox4" value="option4">
+          <label class="form-check-label" for="inlineCheckbox4">Delete</label>
+        </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        </form><br>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+            <button (click)="postrole()" class="btn btn-secondary">Submit</button>
+            <button (click)="formreset()" class="btn btn-secondary mx-3">Reset</button>
+         </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div style="position:absolute; right:0;"><form class="example-form" >
+<mat-form-field class="example-full-width">
+<span matPrefix> </span>
+<input type="tel" matInput placeholder="Search Employee" name= "search" >
+<button matSuffix mat-button><mat-icon >search</mat-icon></button>
+</mat-form-field>
+<br/>
+</form></div>
+<br><br><br>
+
+<div class="card">
+  <div class="card-body">
+<h5 class="card-title">Current Roles</h5>
+
+<table class="table mt-3  table-bordered">
+  <thead>
+      <tr style="background-color: #24272B;">
+          <th scope="col" style="color:white">Role ID</th>
+          <th scope="col"style="color:white">Role Name</th>
+          <th scope="col"style="color:white">Edit</th>
+          <th scope="col"style="color:white">Add</th>
+          <th scope="col"style="color:white">Delete</th>
+
+      </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let tutorial of tutorialsrole; let i = index">
+        <td>{{tutorial.rid}}</td>
+        <td>{{tutorial.rname}}</td>
+        <td *ngIf="tutorial.redit=='Yes'; else no"><fa-icon style="color: green;" [icon]="yesicon"></fa-icon></td>
+        <td *ngIf="tutorial.radd=='Yes'; else no"><fa-icon style="color: green;" [icon]="yesicon"></fa-icon></td>
+        <td *ngIf="tutorial.rdelete=='Yes'; else no"><fa-icon style="color: green;" [icon]="yesicon"></fa-icon></td>
+        <ng-template #no>
+          <td><fa-icon style="color:red;" [icon]="noicon"></fa-icon></td>
+        </ng-template>
+    </tr>
+</tbody>
+
+</table>
+  </div>
+</div>
+<br>
+
+
+
+
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form >
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Employee Id</label>
+                <input type="number" formControlName="eid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Employee Name</label>
+                <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email Id</label>
+                  <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Select Role</label>
+                <select formControlName="admin" class="form-select" id="inputGroupSelect01">
+                  <option value="0">HR</option>
+                  <option value="1">Admin</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" id="password">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                  <input type="password" formControlName="cpassword" class="form-control" id="confirm_password">
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button"  class="btn btn-primary">Add</button>
+        <button type="button"  class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,204 @@
+<page-header style="background-color:#D5A021 ;"></page-header>
+
+
+
+
+<br><br>
+<div>
+<div class="card border-dark">
+  <h5 class="card-header" style="background-color: #24272B; color: #e3e3e3;">New User Registration</h5>
+  <div class="card-body" style="background-color: #e3e3e3;">
+
+    <div class="modal-body">
+      <form [formGroup]="formValue">
+        <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Employee Id</label>
+            <input type="number" formControlName="eid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+          </div>
+          </div>
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Employee Name</label>
+            <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Email Id</label>
+              <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          </div>
+          <div class="col">
+            <label class="form-label" for="inputGroupSelect01">Select Role</label>
+          <div class="input-group mb-3">
+
+
+            <select formControlName="admin" class="form-select" id="inputGroupSelect01" required>
+              <option *ngFor="let role of tutorialsrole" [value]="role.rname">{{role.rname}}</option>
+            </select>
+          </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="password" required>
+
+          </div>
+          </div>
+          <div class="col">
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+              <input type="password" formControlName="confirmPassword" class="form-control" id="confirm_password" required>
+
+              <mat-error *ngIf="formValue.get('confirmPassword')?.hasError('mismatch')"
+                         translate [translateParams]="{value: 'login.password' | translate}">
+                {{'validations.inconsistent'}}
+              </mat-error>
+          </div>
+          </div>
+        </div>
+        </form>
+
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <button [disabled]="!!formValue.invalid" type="button" (click)= "postEmployeeDetails()" class="btn btn-secondary" style="-webkit-transition: ease-out 0.4s;-moz-transition: ease-out 0.4s;transition: ease-out 0.4s;">Submit</button>
+              <button type="button" (click)= "resetform()" class="btn btn-secondary mx-3" style="-webkit-transition: ease-out 0.4s;-moz-transition: ease-out 0.4s;transition: ease-out 0.4s;">Reset</button>
+           </div>
+      </div>
+      </div>
+  </div>
+</div>
+</div>
+<br>
+
+<div style="position:absolute; right:0;"><form class="example-form" >
+<mat-form-field class="example-full-width">
+<span matPrefix> </span>
+<input type="tel" matInput placeholder="Search Employee" name= "search" [(ngModel)]= "search">
+<button matSuffix mat-button><mat-icon >search</mat-icon></button>
+</mat-form-field>
+<br/>
+</form></div>
+<br><br><br>
+
+<div class="card border-dark">
+  <div class="card-body"style="background-color: #e3e3e3;">
+<h5 class="card-title">Current Users</h5>
+
+<table class="table mt-3  table-bordered" style="border-color: #24272B;">
+  <thead>
+      <tr style="background-color: #24272B;">
+          <th scope="col"style="color:white ;text-align:center">Employee ID</th>
+          <th scope="col"style="color:white ;text-align:center">Employee Name</th>
+          <th scope="col"style="color:white ;text-align:center">Email ID</th>
+          <th scope="col"style="color:white ;text-align:center">Role</th>
+          <th scope="col" style="color:white ;text-align:center">Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tutorial of tutorialsAdmin; let i = index">
+      <td>{{tutorial.eid}}</td>
+      <td>{{tutorial.name}}</td>
+      <td>{{tutorial.email}}</td>
+      <td>{{tutorial.admin}}</td>
+      <td>
+
+
+
+          <button matTooltipClass="below" matTooltip="Edit" mat-icon-button="" (click)= "onEdit(tutorial)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-primary mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="primary" ng-reflect-disabled="false" ng-reflect-message="Edit" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-4" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">edit</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+             <button matTooltip="Delete" matTooltipClass="below" mat-icon-button=""(click)= "deleteEmployee(tutorial)" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-warn mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="warn" ng-reflect-disabled="false" ng-reflect-message="g" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-5" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">delete</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+      </td>
+
+  </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formValueedit">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Employee Id</label>
+                <input type="number" formControlName="eid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Employee Name</label>
+                <input type="text" formControlName="name" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email Id</label>
+                  <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Select Role</label>
+                <select formControlName="admin" class="form-select" id="inputGroupSelect01">
+                  <option *ngFor="let role of tutorialsrole" [value]="role.rname">{{role.rname}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" id="password">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                  <input type="password" formControlName="cpassword" class="form-control" id="confirm_password">
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf= "showAdd" (click)= "postEmployeeDetails()" class="btn btn-primary">Add</button>
+        <button type="button" *ngIf= "showUpdate" (click)= "updateEmployeeDetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Are you sure want to Logout</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-footer">
+      <button (click)= "logout()" routerLink="/login" type="button" class="btn btn-success mx+20">Yes</button>
+      <button type="button" class="btn btn-danger mx-20" data-bs-dismiss="modal">No</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<br><br>
+

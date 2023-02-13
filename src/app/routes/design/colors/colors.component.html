@@ -1,0 +1,126 @@
+<page-header style="background-color:#D5A021 ;"></page-header>
+
+
+<br><br>
+<div>
+<div class="card border-dark">
+  <h5 class="card-header" style="background-color: #24272B; color: #e3e3e3;">Update Role and Access</h5>
+  <div class="card-body" style="background-color: #e3e3e3;">
+
+    <div class="modal-body">
+      <form>
+        <div>
+        <div class="form-group row " style="margin-left: 83px;">
+          <label for="inputEmail3" class="col-sm-4 col-form-label" style="text-align: right;padding-right: 35px">Role Code</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Role Code">
+          </div>
+        </div><br>
+        <div class="form-group row"style="margin-left: 83px;">
+          <label for="inputPassword3" class="col-sm-4 col-form-label"style="text-align: right;padding-right: 35px">Role Name</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="Enter Role Name">
+          </div>
+        </div><br>
+        <div class="form-group row"style="margin-left: 83px;">
+          <div class="col-sm-4"style="text-align: right;padding-right: 35px">Active Status</div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+
+
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="card border-dark">
+  <div class="card-body"style="background-color: #e3e3e3;">
+<h5 class="card-title">Access Permission</h5>
+
+<table class="table mt-3  table-bordered" style="border-color: #24272B;">
+ <thead>
+      <tr style="background-color: #24272B;">
+          <th scope="col"style="color:white ;text-align:center">Modules</th>
+          <th scope="col"style="color:white ;text-align:center">Add</th>
+          <th scope="col"style="color:white ;text-align:center">Edit</th>
+          <th scope="col"style="color:white ;text-align:center">View</th>
+          <th scope="col" style="color:white ;text-align:center">Delete</th>
+      </tr>
+  </thead>
+ <!-- <tbody>
+    <tr *ngFor="let tutorial of tutorialsAdmin; let i = index">
+      <td>{{tutorial.eid}}</td>
+      <td>{{tutorial.name}}</td>
+      <td>{{tutorial.email}}</td>
+      <td>{{tutorial.admin}}</td>
+      <td>
+
+
+
+          <button matTooltipClass="below" matTooltip="Edit" mat-icon-button="" (click)= "onEdit(tutorial)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-primary mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="primary" ng-reflect-disabled="false" ng-reflect-message="Edit" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-4" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">edit</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+             <button matTooltip="Delete" matTooltipClass="below" mat-icon-button=""(click)= "deleteEmployee(tutorial)" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-warn mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="warn" ng-reflect-disabled="false" ng-reflect-message="g" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-5" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">delete</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+      </td>
+
+  </tr>
+  </tbody>-->
+</table>
+<div class="text-center" style="margin-top:50px;">
+  <div class="btn-group" role="group" >
+    <button type="button" class="btn btn-primary"style="margin:20px;">Button 1</button>
+    <button type="button" class="btn btn-secondary"style="margin:20px;">Button 2</button>
+    <button type="button" class="btn btn-success"style="margin:20px;">Button 3</button>
+    <button type="button" class="btn btn-danger"style="margin:20px;">Button 4</button>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<br><br>
+
+<div class="card border-dark">
+  <div class="card-body"style="background-color: #e3e3e3;">
+<h5 class="card-title">Role and Access Details</h5>
+
+<table class="table mt-3  table-bordered" style="border-color: #24272B;">
+ <thead>
+      <tr style="background-color: #24272B;">
+          <th scope="col"style="color:white ;text-align:center">Sl. No</th>
+          <th scope="col"style="color:white ;text-align:center">Updated By</th>
+          <th scope="col"style="color:white ;text-align:center">Role Code</th>
+          <th scope="col"style="color:white ;text-align:center">Role Name</th>
+          <th scope="col" style="color:white ;text-align:center">Status</th>
+          <th scope="col" style="color:white ;text-align:center">Updated Time</th>
+          <th scope="col" style="color:white ;text-align:center">Action</th>
+      </tr>
+  </thead>
+ <!-- <tbody>
+    <tr *ngFor="let tutorial of tutorialsAdmin; let i = index">
+      <td>{{tutorial.eid}}</td>
+      <td>{{tutorial.name}}</td>
+      <td>{{tutorial.email}}</td>
+      <td>{{tutorial.admin}}</td>
+      <td>
+
+
+
+          <button matTooltipClass="below" matTooltip="Edit" mat-icon-button="" (click)= "onEdit(tutorial)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-primary mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="primary" ng-reflect-disabled="false" ng-reflect-message="Edit" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-4" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">edit</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+             <button matTooltip="Delete" matTooltipClass="below" mat-icon-button=""(click)= "deleteEmployee(tutorial)" class="mat-focus-indicator mat-tooltip-trigger mat-icon-button mat-button-base mat-warn mtx-grid-action-button ng-star-inserted" ng-reflect-ng-class="mtx-grid-action-button," ng-reflect-color="warn" ng-reflect-disabled="false" ng-reflect-message="g" ng-reflect-position="below" ng-reflect-touch-gestures="auto" aria-describedby="cdk-describedby-message-qtp-1-5" cdk-describedby-host="qtp-1"><span class="mat-button-wrapper"><mat-icon role="img" class="mat-icon notranslate mtx-grid-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">delete</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>
+      </td>
+
+  </tr>
+  </tbody>-->
+</table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<page-header style="background-color:#D5A021 ;"></page-header>
+
+<div class="matero-row" fxLayout="row wrap">
+
+  <!-- Statistics -->
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100"
+       *ngFor="let stat of stats">
+    <mat-card [ngClass]="['text-white', stat.color]">
+      <mat-card-title class="f-s-12 f-w-100">{{stat.title}}</mat-card-title>
+      <mat-card-content>
+        <h2>{{stat.amount}}</h2>
+        <mtx-progress [value]="stat.progress.value"
+                      height="2px"
+                      foreground="rgba(255,255,255,1)"
+                      background='rgba(0,0,0,.5)'>
+        </mtx-progress>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+

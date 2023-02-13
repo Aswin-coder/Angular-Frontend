@@ -1,0 +1,19 @@
+<mat-toolbar class="matero-toolbar">
+  <button mat-icon-button class="matero-toolbar-button" *ngIf="showToggle"
+          (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>SMART FACE RECOGNITION</h1>
+
+  <app-branding *ngIf="showBranding"></app-branding>
+  <span fxFlex></span>
+<h1 >Welcome,| {{dayarray[day]}}, {{montharray[month]}} {{date}}, {{year}}| {{hh}}:{{mm}}:{{ss}} {{ampm}} &nbsp; </h1>
+<p style="border-left: 2px solid black;
+  height: 50px; margin-top: 20px;"></p>
+<h1><button class="btn" (click)="logout()">LOGOUT</button></h1>
+
+
+
+</mat-toolbar>
+
+

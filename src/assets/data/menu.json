@@ -1,0 +1,46 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "admin",
+      "name": "admin",
+      "type": "sub",
+      "icon": "people_alt",
+      "children": [
+        {
+          "route": "data",
+          "name": "data",
+          "type": "link"
+        },
+        {
+          "route": "user",
+          "name": "user",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "role",
+      "name": "role",
+      "type": "sub",
+      "icon": "account_circle",
+      "children": [
+        {
+          "route": "createrole",
+          "name": "createrole",
+          "type": "link"
+        },
+        {
+          "route": "editrole",
+          "name": "editrole",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}
